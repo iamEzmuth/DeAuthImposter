@@ -32,4 +32,4 @@ to connect to that wifi till you close the script by typing "quit" and pressing 
 """It took 3 hours to complete this script but may have some flaws feel free to fork and pull request"""
 '''but dont pull request for changing comments till hacktoberfest'''  (-_-) (=_=)
 
-BY: iamUPGRADE (one day this name will be known by everyone)
+BY: iamEZMUTH (one day this name will be known by everyone)
