@@ -8,6 +8,7 @@ $>sudo python3 deauthimposter.py [mandatrory options]
 In Mandatory options you have two of them:
 1) all
 2) select
+
  if you choose "all", all devices connected to that wifi network will get disconnected but choosing "select", before running attack
  you will be asked for which device to be removed from attack list so that you can remove you own devices for deauthenticating (disconnecting)
  
