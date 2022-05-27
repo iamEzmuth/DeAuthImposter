@@ -46,4 +46,5 @@ to reconnect to that wifi network till you close the script by typing "quit" and
 """It took 3 hours to complete this script but may have some flaws feel free to fork and pull request"""
 '''but don't pull request for changing comments till hacktoberfest'''(=_=)
 
-BY: iamEZMUTH
+BY: iamEZMUTH 
+
