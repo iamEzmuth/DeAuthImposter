@@ -1,9 +1,11 @@
 #!/bin/bash
 
-if ["$1"]; then 
-    INTERFACE=$1
+if [ $1 != "" ] 
+then 
+    INTERFACE=$1;
 else
-    INTERFACE="wlan0"    
+    INTERFACE="wlan0";   
+fi
 
 ifconfig $INTERFACE down
 airmon-ng check kill
