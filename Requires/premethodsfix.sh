@@ -1,9 +1,16 @@
 #!/bin/bash
 
-ifconfig wlan0 down
+if [ $1 != "" ] 
+then 
+    INTERFACE=$1;
+else
+    INTERFACE="wlan0";   
+fi
+
+ifconfig $INTERFACE down
 airmon-ng check kill
-ifconfig wlan0 down
-iwconfig wlan0 mode managed
-ifconfig wlan0 up
+ifconfig $INTERFACE down
+iwconfig $INTERFACE mode managed
+ifconfig $INTERFACE up
 service NetworkManager start
 
