@@ -1,11 +1,11 @@
 import sys
 import os
 import subprocess as subp
-from prettytable import PrettyTable
 import csv
 import time
 import multiprocessing
-import pyfiglet
+from prettytable import PrettyTable
+import pyfiglet 
 
 
 
@@ -13,7 +13,8 @@ import pyfiglet
 if(len(sys.argv) == 2):
     if(sys.argv[1] == "--help"):
         print(pyfiglet.figlet_format("Help Section For DeauthImpo!", font = "slant", width = 80 ))
-        print('\n\nFirst Argument\n\tall\t\t-- To target all devices\n\tselect\t\t-- To target specific devices!\n\nSecond Argument\n\t[Network Interface Name for wifi]\t-- Name of network interface name for wifi (you find that by running commands "ifconfig" for linux and "ipconfig" for windows)')
+        HELP_MESSAGE = """\n\nFirst Argument\n\tall\t\t-- To target all devices\n\tselect\t\t-- To target specific devices!\n\nSecond Argument\n\t[Network Interface Name for wifi]\t-- Name of network interface name for wifi (you find that by running commands "ifconfig" for linux and "ipconfig" for windows)"""
+        print(HELP_MESSAGE)
         sys.exit(0)
 
 
@@ -64,9 +65,7 @@ with open('./Requires/network.csv','r') as f1:
         l2[1] = line[0]
         l2[2] = line[2]
         l1.append(l2.copy())
-
-
-
+    print("result of parse.py: ",l1)
 
 #####Printing all Networks####
 print("------------Networks------------\n")
@@ -111,7 +110,7 @@ with open('./Requires/network2.csv','r') as f1:
     for line in cr:
         l2[0] = line[0]
         final.append(l2.copy())
-
+    print("result of parse2.py: ",final)
 
 
 ####Deleing all non-required files####
@@ -166,7 +165,7 @@ while (True):
         break    
     else:
         print("plz Enter Properly!!\n")
-        continue    
+        continue
 
 
 
